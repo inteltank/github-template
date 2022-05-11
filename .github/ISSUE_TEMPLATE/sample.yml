@@ -1,68 +1,62 @@
 name: Bug Report
-description: Report incorrect behavior in the pandas library
-title: "BUG: "
-labels: [Bug, Needs Triage]
-
+description: File a bug report
+title: "[Bug]: "
+labels: ["bug", "triage"]
+assignees:
+  - octocat
 body:
-  - type: checkboxes
-    id: checks
+  - type: markdown
     attributes:
-      label: Pandas version checks
-      options:
-        - label: >
-            I have checked that this issue has not already been reported.
-          required: true
-        - label: >
-            I have confirmed this bug exists on the
-            [latest version](https://pandas.pydata.org/docs/whatsnew/index.html) of pandas.
-          required: true
-        - label: >
-            I have confirmed this bug exists on the main branch of pandas.
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details
+      description: How can we get in touch with you if we need more info?
+      placeholder: ex. email@example.com
+    validations:
+      required: false
   - type: textarea
-    id: example
+    id: what-happened
     attributes:
-      label: Reproducible Example
-      description: >
-        Please follow [this guide](https://matthewrocklin.com/blog/work/2018/02/28/minimal-bug-reports) on how to
-        provide a minimal, copy-pastable example.
-      placeholder: >
-        import pandas as pd
-
-        df = pd.DataFrame(range(5))
-
-        ...
-      render: python
+      label: What happened?
+      description: Also tell us, what did you expect to happen?
+      placeholder: Tell us what you see!
+      value: "A bug happened!"
     validations:
       required: true
-  - type: textarea
-    id: problem
-    attributes:
-      label: Issue Description
-      description: >
-        Please provide a description of the issue shown in the reproducible example.
-    validations:
-      required: true
-  - type: textarea
-    id: expected-behavior
-    attributes:
-      label: Expected Behavior
-      description: >
-        Please describe or show a code example of the expected behavior.
-    validations:
-      required: true
-  - type: textarea
+  - type: dropdown
     id: version
     attributes:
-      label: Installed Versions
-      description: >
-        Please paste the output of ``pd.show_versions()``
-      value: >
-        <details>
-
-
-        Replace this line with the output of pd.show_versions()
-
-
-        </details>
+      label: Version
+      description: What version of our software are you running?
+      options:
+        - 1.0.2 (Default)
+        - 1.0.3 (Edge)
     validations:
       required: true
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: What browsers are you seeing the problem on?
+      multiple: true
+      options:
+        - Firefox
+        - Chrome
+        - Safari
+        - Microsoft Edge
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      render: shell
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
